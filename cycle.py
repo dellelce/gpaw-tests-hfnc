@@ -31,4 +31,7 @@ def cycle(filename="19.json", start=-1.10, stop=-1.80, step=0.05, atom=1, basela
 if __name__ == '__main__':
     # initial cycle: start=-1.10, stop=-1.80, step=0.05, atom=1
 
-    cycle(start=-1.80, stop=-2.01, step=0.05, atom=1)
+    # run 2: cycle(start=-1.80, stop=-2.01, step=0.05, atom=1)
+    # run 3 cycle(start=-1.825, stop=-2.01, step=0.05, atom=1)
+    # run 4:
+    cycle(start=-1.8125, stop=-2.01, step=0.05, atom=1)
