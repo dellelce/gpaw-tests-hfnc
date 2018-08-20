@@ -2,3 +2,5 @@
 *.AM05
 *.PBE
 *.gpw
+log.run7.txt
+*.traj
