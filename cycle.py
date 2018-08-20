@@ -45,5 +45,10 @@ if __name__ == '__main__':
     run 5 moved carbon atom from 1.40 to 1.95, but 1.95 did not converge
     Nitrogen stayed fixed at 1.45
     Best energy for Hf-C at 1.90
+    Run 6 will move C with from 1.805 to 1.94 with step 0.025 and keep N at 1.8125
+    Run 6 did not converge at 1.8549 and the best execution was at 1.8299
+    Hence best lengths with these calculations are: Hf-N: 1.8125 and HF-C: 1.8299 which are also
+    very close to non-convergence lengths
     '''
-    cycle(start=-1.40, stop=-2.01, step=0.05, atom=2, position=1, baselabel='yy')
+    cycle(filename="19.r6.json", start=-1.805,
+                                 stop=-1.941, step=0.025, atom=2, position=1, baselabel='zz')
