@@ -9,6 +9,7 @@ from auto import execution
 
 
 def cycle(filename="19.json", start=-1.10, stop=-1.80, step=0.05, atom=1, position=2, baselabel='xx'):
+    cnt = 0
     with open(filename) as fh:
         b = fh.read()
         d = json.loads(b)
@@ -17,15 +18,17 @@ def cycle(filename="19.json", start=-1.10, stop=-1.80, step=0.05, atom=1, positi
 
     while status >= stop:
         d['xyz'][atom][position] = status
-        pprint(d['xyz'][atom])
+        pprint(d['xyz'])
         label=str(status).replace('-','')
         label=label.replace('.','_')
         label=label[:6]
+        print("this step: {}".format(status))
         x = execution(d)
         x.run(baselabel+label)
+        cnt += 1
         status -= step
 
-
+    print("cycle() completed with {} executions.".format(cnt))
 
 
 if __name__ == '__main__':
@@ -50,5 +53,23 @@ if __name__ == '__main__':
     Hence best lengths with these calculations are: Hf-N: 1.8125 and HF-C: 1.8299 which are also
     very close to non-convergence lengths
     '''
-    cycle(filename="19.r6.json", start=-1.805,
-                                 stop=-1.941, step=0.025, atom=2, position=1, baselabel='zz')
+    #cycle(filename="19.r6.json", start=-1.805,
+    #                             stop=-1.941, step=0.025, atom=2, position=1, baselabel='zz')
+    '''
+    Run 7 Moves Hf on Z from -0.10 to 0.10
+    Original run 7 does not converge
+    '''
+    #cycle(filename="19.ok0.json", start=0.10,
+    #                              stop=-0.10,
+    #                              step=-0.01, atom=0, position=2, baselabel='yz')
+    #cycle(filename="19.ok1.json", start=0.06,
+    #                              stop=-0.06,
+    #                              step=-0.01, atom=0, position=2, baselabel='yz')
+    # original "Run 7" with correct position (=3)
+    cycle(filename="19.ok0-correct.json",
+          start=0.10,
+          stop=-0.10,
+          step=-0.01,
+          atom=0,
+          position=3,
+          baselabel='zy')
