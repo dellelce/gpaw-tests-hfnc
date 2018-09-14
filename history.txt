@@ -1,0 +1,751 @@
+   0 cd /app/gpaw
+   1 ls -lt
+   2 cd datasets/
+   3 ls
+   4 . ../software/venv/bin/activate
+   5 set | grep GPAW
+   6 cd $GPAW_SETUP_PATH
+   7 gpaw-setup -f PBE Hf
+   8 gpaw-setup -f PBE N
+   9 gpaw-setup -f PBE C
+  10 vi 10.json
+  11 :wq
+  12 ls -lt
+  13 cp /tmp/auto.py .
+  14 python auto.py 10.json 
+  15 bg
+  16 ls -lt
+  17 tail -300f 3_35912_P4mm_PBE_1534739007.txt 
+  18 tail -300 -f 3_35912_P4mm_PBE_1534739007.txt 
+  19 ls -lt
+  20 cp 10.json 11.json
+  21 vi 11.json 
+  22 python auto.py 11.json  &
+  23 ps -ef
+  24 ls -lta
+  25 tail -200f 3_35912_P4mm_PBE_1534739226.txt
+  26 tail -200 -f 3_35912_P4mm_PBE_1534739226.txt
+  27 ls -lt
+  28 cp 10.json 12.json
+  29 vi 12.json 
+  30 python auto.py 12.json  &
+  31 ls -lt
+  32 tail -200f 3_35912_P4mm_PBE_1534739407.txt
+  33 tail -200 -f 3_35912_P4mm_PBE_1534739407.txt
+  34 cp 12.json 13.json
+  35 vi 13.json 
+  36 :wq
+  37 python auto.py 13.json  &
+  38 top
+  39 ls -ly
+  40 ls -lt |head
+  41 tail 3_35912_P4mm_PBE_1534739555.txt
+  42 tail -f  3_35912_P4mm_PBE_1534739555.txt
+  43 top
+  44 ls -lt
+  45 cp 13.json 
+  46 cp 13.json 14.json
+  47 vi 14.json 
+  48 :wq
+  49 ls -lt
+  50 top
+  51 s -lta
+  52 ls -lta
+  53 more 3_35912_P4mm_PBE_1534739555.txt
+  54 l
+  55 cp 14.json 15.json
+  56 vi 15.json 
+  57 python auto.py 15.json  &
+  58 vi 15.json 
+  59 python auto.py 15.json  &
+  60 ls -lta
+  61 vi 3_41437_Pm_PBE_1534740282.txt
+  62 cp 15.json 16.json
+  63 vi 16.json 
+  64 :wq
+  65 vi 16.json 
+  66 :wq
+  67 python auto.py 16.json  &
+  68 vi 16.json 
+  69 python auto.py 16.json  &
+  70 ls -lt
+  71 tail -200 -f  3_38249_Pm_PBE_1534740843.txt
+  72 vi   3_38249_Pm_PBE_1534740843.txt
+  73 ls -lt
+  74 vi 3_38249_Pm_PBE_1534740843.txt
+  75 :q
+  76 awk '/Free/||/Kinetic/' *txt
+  77 awk '/Free/||/Kinetic: /' *txt
+  78 awk '/Free/||/Kinetic: / { print FILENAME " " $0; }' *txt
+  79 ls -lt *json
+  80 ls -lt *txt | head -3
+  81 diff -c 14.json 16.json 
+  82 diff  14.json 16.json 
+  83 diff  15.json 16.json 
+  84 cp 16.json 17.json
+  85 vi 17.json 
+  86 python auto.py 17.json &
+  87 vi 3_38249_Pm_PBE_1534773220.txt
+  88 awk '/Free/||/Kinetic: /||/Potential: / { print FILENAME " " $0; }' *txt
+  89 awk '/Free/||/Kinetic: /||/Potential: / { print FILENAME " " $0; } END { print " " ; }' *txt
+  90 vi 3_38249_Pm_PBE_1534773220.txt
+  91 :q
+  92 awk '/Free/||/Kinetic: /||/Potential: / { print FILENAME " " $0; }' *txt
+  93 history
+  94 awk '/Free/||/Kinetic: /||/Potential: / { print FILENAME " " $0; }' *txt
+  95 cp 17.json 18.json
+  96 vi 18.json 
+  97 python auto.py 18.json &
+  98 ls -lt | head
+  99 tail -200f 3_38249_Pm_PBE_1534773729.txt
+ 100 tail -200 -ff 3_38249_Pm_PBE_1534773729.txt
+ 101 awk '/Free/||/Kinetic: /||/Potential: / { print FILENAME " " $0; }' *txt
+ 102 cp 18.json 19.json
+ 103 vi 19.json 
+ 104 python auto.py 19.json &
+ 105 tail -200f 3_38249_Pm_PBE_1534773849.txt
+ 106 tail -200 -f 3_38249_Pm_PBE_1534773849.txt
+ 107 vi 19.json 
+ 108 ls -lt *json
+ 109 cp 19.json 20.json
+ 110 vi 20.json
+ 111 python auto.py 20.json &
+ 112 tail -200f 3_38249_Pm_PBE_1534773986.txt
+ 113 tail -200 -f 3_38249_Pm_PBE_1534773986.txt
+ 114 awk '/Free/||/Kinetic: /||/Potential: / { print FILENAME " " $0; }' *txt
+ 115 cp 19.json 19.l.json
+ 116 vi 19.l.json 
+ 117 python auto.py 19.l.json &
+ 118 tail -200 -f 3_38249_Pm_M06-L_1534774125.txt
+ 119 ls -lt
+ 120 ls -lt | head
+ 121 cp 19.l.json 19.am05.json
+ 122 vi 19.am05.json 
+ 123 gpaw-setup -f AM05 C
+ 124 gpaw-setup -f AM05 N
+ 125 gpaw-setup -f AM05 Hf
+ 126 vi 19.am05.json 
+ 127 python auto.py 19.am05.json  &
+ 128 tail -200f 3_38249_Pm_AM05_1534774706.txt
+ 129 tail -200 -f 3_38249_Pm_AM05_1534774706.txt
+ 130 vi 19.l.json 
+ 131 ls -lt | head
+ 132 vi 3_38249_Pm_M06-L_1534774125.txt
+ 133 awk '/Fermi /||/Free/||/Kinetic: /||/Potential: / { print FILENAME " " $0; }' *txt
+ 134 for x in *txt; do awk '/Fermi /||/Free/||/Kinetic: /||/Potential: / { print FILENAME " " $0; }' ; echo ; done
+ 135 for x in *txt; do awk '/Fermi /||/Free/||/Kinetic: /||/Potential: / { print FILENAME " " $0; }'  $x ; echo ; done
+ 136 diff -c 19.json 20.json
+ 137 diff  19.json 20.json
+ 138 vi auto.py 
+ 139 ls -t
+ 140 ls -lt
+ 141 ls -lt  | more
+ 142 cat 3_38249_Pm_AM05_1534774706.txt
+ 143 q
+ 144 ls -lt 19.am05.json 
+ 145 vi 19.am05.json 
+ 146 python
+ 147 pip install pyyaml
+ 148 python
+ 149 ls -lt
+ 150 ls -lt *am*
+ 151 cp 19.am05.json 19.am05.a.json 
+ 152 vi 19.am05.a.json 
+ 153 python auto.py 19.am05.a.json 
+ 154 bg
+ 155 tail -200 -f 3_38249_Pm_AM05_19a_1534775601.txt
+ 156 history
+ 157 top
+ 158 ls -lt *json
+ 159 vim
+ 160 apk add vim
+ 161 vim cycle.py
+ 162 vi auto.py 
+ 163 vim cycle.py 
+ 164 vim 19.json 
+ 165 vim cycle.py 
+ 166 python cycle.py 
+ 167 vim cycle.py 
+ 168 python cycle.py 
+ 169 vi 3_38249_Pm_PBE_a.txt
+ 170 for x in *txt; do awk '/Fermi /||/Free/||/Kinetic: /||/Potential: / { print FILENAME " " $0; }'  $x ; echo ; done
+ 171 vim cycle.py 
+ 172 python cycle.py 
+ 173 vim cycle.py 
+ 174 python cycle.py 
+ 175 vim cycle.py 
+ 176 python cycle.py 
+ 177 vim cycle.py 
+ 178 python cycle.py 
+ 179 vim cycle.py 
+ 180 python cycle.py 
+ 181 vim cycle.py 
+ 182 python cycle.py 
+ 183 vim cycle.py 
+ 184 python cycle.py 
+ 185 vim cycle.py 
+ 186 python cycle.py | more
+ 187 vim cycle.py 
+ 188 python cycle.py &
+ 189 vim cycle.py 
+ 190 python cycle.py &
+ 191 fg
+ 192 vim cycle.py 
+ 193 python cycle.py &
+ 194 fg
+ 195 vim cycle.py 
+ 196 python cycle.py &
+ 197 for x in *xx*txt; do awk '/Fermi /||/Free/||/Kinetic: /||/Potential: / { print FILENAME " " $0; }'  $x ; echo ; done
+ 198 vi cycle.py 
+ 199 git init
+ 200 apk add git
+ 201 git init
+ 202 ls -lta
+ 203 git status
+ 204 echo '*.pyc' >> .gitignore
+ 205 vi README.md
+ 206 git add README.md 
+ 207 git commit -m 'initial readme'
+ 208 git config --global user.email "antouk@dellelce.com"
+ 209 git config --global user.name "Antonio Dell'elce"
+ 210 git commit -m 'initial readme'
+ 211 git status
+ 212 echo '*.AM05' >> .gitignore 
+ 213 echo '*.PBE' >> .gitignore 
+ 214 vim .gitignore 
+ 215 git status
+ 216 git add *.py
+ 217 git commit -m 'initial code'
+ 218 git status
+ 219 mkdir old
+ 220 ls -1 *txt
+ 221 ls -1 *txt| grep -v xx
+ 222 a=$(ls -1 *txt| grep -v xx )
+ 223 mv $a  old/
+ 224 git status
+ 225 git add old/
+ 226 git commit -m 'old executions'
+ 227 ls -lta
+ 228 git status
+ 229 git add *xx*txt
+ 230 git commit -m 'cycle.py run from 1.10 to 1.75'
+ 231 ls -lta
+ 232 git log
+ 233 apk add less
+ 234 ls -lta
+ 235 git remote -v
+ 236 vi README.md 
+ 237 git status
+ 238 mv 19.am05.* 20.json old/
+ 239 vi 1[0-8]*json old
+ 240 mv 1[0-8]*json old
+ 241 git status
+ 242 mv 19.l.json old/
+ 243 git status
+ 244 git add -A old
+ 245 git commit -m 'old executions'
+ 246 git status
+ 247 git add .gitignore  && git commit -m 'keeping the repo clean'
+ 248 git status
+ 249 vi 19.json 
+ 250 git status
+ 251 git add 19.json 
+ 252 git commit -m 'base execution profile for cycle.py'
+ 253 git diff README.md 
+ 254 git commit -m 'clarify the purpose of this repo' README.md 
+ 255 git status
+ 256 ls -lta
+ 257 git status
+ 258 git ls-files
+ 259 git ls-files| wc -l
+ 260 ls -lt
+ 261 vi cycle.py 
+ 262 vim cycle.py 
+ 263 git diff cycle.py 
+ 264 git commit -m 'cycle.py: run 2' cycle.py 
+ 265 python cycle.py &
+ 266 for x in *xx*txt; do awk '/Fermi /||/Free/||/Kinetic: /||/Potential: / { print FILENAME " " $0; }'  $x ; echo ; done
+ 267 vim cycle.py 
+ 268 python cycle.py &
+ 269 for x in *xx*txt; do awk '/Fermi /||/Free/||/Kinetic: /||/Potential: / { print FILENAME " " $0; }'  $x ; echo ; done
+ 270 vim cycle.py 
+ 271 python cycle.py &
+ 272 for x in *xx*txt; do awk '/Fermi /||/Free/||/Kinetic: /||/Potential: / { print FILENAME " " $0; }'  $x ; echo ; done
+ 273 ls -lt
+ 274 git status
+ 275 vi cycle.py 
+ 276 git diff cycle.py 
+ 277 git add -A .
+ 278 git commit -m 'runs: 2, 3 and 4'
+ 279 vi cycle.py 
+ 280 vim cycle.py 
+ 281 ls -lt
+ 282 vi 19.json 
+ 283 vim cycle.py 
+ 284 vi 19.json 
+ 285 vim cycle.py 
+ 286 vi 19.json 
+ 287 vim cycle.py 
+ 288 vim 19.json 
+ 289 vim cycle.py 
+ 290 python cycle.py &
+ 291 vim cycle.py 
+ 292 python cycle.py &
+ 293 fg
+ 294 vim cycle.py 
+ 295 python cycle.py &
+ 296 for x in *yy*txt; do awk '/Fermi /||/Free/||/Kinetic: /||/Potential: / { print FILENAME " " $0; }'  $x ; echo ; done
+ 297 for x in *txt; do awk '/Fermi /||/Free/||/Kinetic: /||/Potential: / { print FILENAME " " $0; }'  $x ; echo ; done
+ 298 for x in *txt; do awk '/Fermi /||/Free/||/Kinetic: /||/Potential: / { print FILENAME " " $0; }'  $x ; done
+ 299 for x in *txt; do awk '/Fermi /||/Free/||/Kinetic: /||/Potential: / { print FILENAME " " $0; }'  $x ; done | awk '/Free/'
+ 300 for x in *txt; do awk '/Fermi /||/Free/||/Kinetic: /||/Potential: / { print FILENAME " " $0; }'  $x ; done | awk '/Free/' 
+ 301 for x in *txt; do awk '/Fermi /||/Free/||/Kinetic: /||/Potential: / { print FILENAME " " $0; }'  $x ; done | awk '/Free/' | sort -k4n
+ 302 for x in *txt; do awk '/Fermi /||/Free/||/Kinetic: /||/Potential: / { print FILENAME " " $0; }'  $x ; done | awk '/Free/' | sort -k4nr
+ 303 ls -lt
+ 304 ls -ltr
+ 305 cat 3_38249_Pm_PBE_yy1_9500.txt
+ 306 for x in *txt; do awk '/Fermi /||/Free/||/Kinetic: /||/Potential: / { print FILENAME " " $0; }'  $x ; done | awk '/Free/' | sort -k4nr
+ 307 vi README.md 
+ 308 vim cycle.py 
+ 309 vi 19.json 
+ 310 vim cycle.py 
+ 311 ls -lt
+ 312 git status
+ 313 git diff
+ 314 git log | hed
+ 315 git log | head
+ 316 git log 
+ 317 git add -A .
+ 318 git commit -m 'Run 5'
+ 319 ls -lta
+ 320 git status
+ 321 cp 19.json 19.r6.json
+ 322 vi cycle.py 
+ 323 vim cycle.py 
+ 324 vi 19.r6.json 
+ 325 vim cycle.py 
+ 326 vim 19.r6.json 
+ 327 vim cycle.py 
+ 328 git status
+ 329 git diff
+ 330 vim cycle.py 
+ 331 python cycle.py &
+ 332 for x in *txt; do awk '/Fermi /||/Free/||/Kinetic: /||/Potential: / { print FILENAME " " $0; }'  $x ; done | awk '/Free/' | sort -k4nr
+ 333 ls -lt
+ 334 ls -ltr
+ 335 cat 3_38249_Pm_PBE_zz1_8549.txt
+ 336 ls -ltr
+ 337 for x in *txt; do awk '/Fermi /||/Free/||/Kinetic: /||/Potential: / { print FILENAME " " $0; }'  $x ; done | awk '/Free/' | sort -k4nr
+ 338 git status
+ 339 git diff cycle.py 
+ 340 vim cycle.py 
+ 341 git status
+ 342 vim cycle.py 
+ 343 git iff
+ 344 git status
+ 345 git diff
+ 346 vim cycle.py 
+ 347 git diff
+ 348 ls -lt
+ 349 git status
+ 350 git add -A .
+ 351 git log
+ 352 git commit -m 'Run 6'
+ 353 cp 19.r6.json 19.ok0.json
+ 354 vi 19.ok0.json
+ 355 vi cycle.py 
+ 356 vim cycle.py 
+ 357 for x in *txt; do awk '/Fermi /||/Free/||/Kinetic: /||/Potential: / { print FILENAME " " $0; }'  $x ; done | awk '/Free/' | sort -k4nr
+ 358 git status
+ 359 git diff
+ 360 python cycle.py &
+ 361 ls -lt | head
+ 362 git status
+ 363 vim cycle.py 
+ 364 python cycle.py &
+ 365 vim cycle.py 
+ 366 python cycle.py &
+ 367 vim cycle.py 
+ 368 python cycle.py &
+ 369 vim cycle.py 
+ 370 python cycle.py &
+ 371 vim cycle.py 
+ 372 python cycle.py &
+ 373 ls -lta
+ 374 git status
+ 375 vi 19.ok0.json 
+ 376 python cycle.py &
+ 377 vi 19.ok0.json 
+ 378 python cycle.py &
+ 379 vi 19.ok0.json 
+ 380 python cycle.py &
+ 381 vim cycle.py 
+ 382 python cycle.py &
+ 383 vim cycle.py 
+ 384 python cycle.py &
+ 385 vim cycle.py 
+ 386 python cycle.py &
+ 387 script log.run7.txt
+ 388 apk add script
+ 389 apk add util-linux
+ 390 type script
+ 391 script log.run7.txt
+ 392 python cycle.py &
+ 393 ls -lta
+ 394 vim 19.ok0.json 
+ 395 python cycle.py &
+ 396 vim 19.ok0.json 
+ 397 python cycle.py &
+ 398 vim +362 /app/gpaw/software/venv/lib/python3.7/site-packages/gpaw/grid_descriptor.py
+ 399 python
+ 400 vim +362 /app/gpaw/software/venv/lib/python3.7/site-packages/gpaw/grid_descriptor.py
+ 401 python cycle.py &
+ 402 python
+ 403 vim +362 /app/gpaw/software/venv/lib/python3.7/site-packages/gpaw/grid_descriptor.py
+ 404 python cycle.py &
+ 405 vim +362 /app/gpaw/software/venv/lib/python3.7/site-packages/gpaw/grid_descriptor.py
+ 406 ls -lt
+ 407 vi 19.ok0.json 
+ 408 python cycle.py &
+ 409 ls-lt
+ 410 ls -lt
+ 411 ls -lt | head
+ 412 tail -200 -f 3_57799_Pm_PBE_yz0_1.txt
+ 413 jobs
+ 414 ls -lt  | more
+ 415 grep -- '[' log.run7.txt 
+ 416 grep -- '\[' log.run7.txt 
+ 417 ls -lt | head
+ 418 more 3_57799_Pm_PBE_yz0_1.txt 
+ 419  ls -lt | head
+ 420 vi cycle.py 
+ 421 tset
+ 422 echo [[0m
+ 423 echo [0m
+ 424 echo [[0m
+ 425 reset
+ 426 vim cycle.py 
+ 427 python cycle.py &
+ 428 tail -200 -f 3_57799_Pm_PBE_yz0_08.txt
+ 429 cat 19.ok0.json 
+ 430 tail -200 -f 3_57799_Pm_PBE_yz0_08.txt
+ 431 job
+ 432 jobs
+ 433 vim cycle.py 
+ 434 python cycle.py &
+ 435 for x in *txt; do awk '/Fermi /||/Free/||/Kinetic: /||/Potential: / { print FILENAME " " $0; }'  $x ; done | awk '/Free/' | sort -k4nr
+ 436 ls -lt
+ 437 ls -lt  |head
+ 438 cp 19.ok0.json 21.json
+ 439 vi 21.json 
+ 440 jobs
+ 441 ls -lt
+ 442 git status
+ 443 git diff
+ 444 vi cycle.py 
+ 445 vim cycle.py 
+ 446 python cycle.py &
+ 447 cp 19.ok0.json 19.ok1.json
+ 448 vi 19.ok1.json 
+ 449 vim cycle.py 
+ 450 python cycle.py &
+ 451 cat 3_57799_Pm_PBE_yz0_06.txt
+ 452 cp 19.ok1.json 19.ok2.json
+ 453 ls -lt
+ 454 cp 19.ok0.json 19.ok-am05.json
+ 455 vi 19.ok-am05.json 
+ 456 python auto.py 19.ok-am05.json 
+ 457 bg
+ 458 tail -200f 3_57799_Pm_AM05_1534789268.txt
+ 459 tail -200 -f 3_57799_Pm_AM05_1534789268.txt
+ 460 more  3_57799_Pm_AM05_1534789268.txt
+ 461 cp  19.ok-am05.json 19.ok-am05-opt.json 
+ 462 vim 19.ok-am05-opt.json
+ 463 vim auto.py 
+ 464 vim 19.ok-am05-opt.json
+ 465 python auto.py 19.ok-am05-opt.json & 
+ 466 tail -200f 3_57799_Pm_AM05_1534789837.txt
+ 467 tail -200- f 3_57799_Pm_AM05_1534789837.txt
+ 468 tail -200 -f 3_57799_Pm_AM05_1534789837.txt
+ 469 jobs
+ 470 fg %4
+ 471 git remote add gh git@github.com:dellelce/gpaw-tests-hfnc.git
+ 472 git push -u gh master
+ 473 apk add ssh
+ 474 apk add openssh
+ 475 git push -u gh master
+ 476 mkdir $HOME/.ssh
+ 477 vim $HOME/.ssh/id_rsa
+ 478 chmod 600  $HOME/.ssh/id_rsa
+ 479 git push -u gh master
+ 480 git status
+ 481 file 3_57799_Pm_AM05_emt.traj
+ 482 apk add file
+ 483 file 3_57799_Pm_AM05_emt.traj
+ 484 ls -lt
+ 485 ls -lt | more
+ 486 cat 19.ok-am05.json
+ 487 ls -lt | head
+ 488 for x in *txt; do awk '/Fermi /||/Free/||/Kinetic: /||/Potential: / { print FILENAME " " $0; }'  $x ; done | awk '/Free/' | sort -k4nr
+ 489 vi 3_57799_Pm_AM05_1534789837.txt
+ 490 for x in *txt; do awk '/Fermi /||/Free/||/Kinetic: /||/Potential: / { print FILENAME " " $0; }'  $x ; done | awk '/Free/' | sort -k4nr
+ 491 more 3_57799_Pm_AM05_1534789837.txt
+ 492  
+ 493 ls -lta
+ 494 jobs
+ 495 top
+ 496 ls -lt
+ 497 ls -lt | head
+ 498 for x in *txt; do awk '/Fermi /||/Free/||/Kinetic: /||/Potential: / { print FILENAME " " $0; }'  $x ; done | awk '/Free/' | sort -k4nr
+ 499 ls -lt | head
+ 500 vi cycle.py 
+ 501 vim cycle.py 
+ 502 cp 19.ok0.json 19.ok0-correct.json
+ 503 vi 19.ok0-correct.json
+ 504 vim cycle.py 
+ 505 python cycle.py &
+ 506 cat 3_57799_P1_PBE_zy0_1.txt
+ 507 tail -200f 3_57799_P1_PBE_zy0_1.txt
+ 508 tail -200 -f 3_57799_P1_PBE_zy0_1.txt
+ 509 ls -lt
+ 510 top
+ 511 ls -lt *am05*
+ 512 ls -lt *AM05*
+ 513 vi3_57799_Pm_AM05_1534789837.txt
+ 514 vi 3_57799_Pm_AM05_1534789837.txt
+ 515 for x in *txt; do awk '/Fermi /||/Free/||/Kinetic: /||/Potential: / { print FILENAME " " $0; }'  $x ; done | awk '/Free/' | sort -k4nr
+ 516 jobs
+ 517 git status
+ 518 echo log.run7.txt >> .gitignore 
+ 519 git status
+ 520 vi cycle.py 
+ 521 vim cycle.py 
+ 522 mkdir incorrect_run7
+ 523 mv *yz* incorrect_run7/
+ 524 git sstatus
+ 525 git status
+ 526 echo '*.traj' >> .gitignore 
+ 527 git status
+ 528 mkdir am05
+ 529 mv *am05* *AM05* am05/
+ 530 mv *am05*json *AM05* am05/
+ 531 ls -lt
+ 532 git status
+ 533 git add -A incorrect_run7/
+ 534 git commit -m 'files from incorrect "Run 7" (Y changed instead of Z - for Hafnium)'
+ 535 git status
+ 536 for x in 3*txt; do awk '/Fermi /||/Free/||/Kinetic: /||/Potential: / { print FILENAME " " $0; }'  $x ; done | awk '/Free/' | sort -k4nr
+ 537 git status
+ 538 git diff cycle.py 
+ 539 for x in 3*txt; do awk '/Fermi /||/Free/||/Kinetic: /||/Potential: / { print FILENAME " " $0; }'  $x ; done | awk '/Free/' | sort -k4nr
+ 540 ls
+ 541 cat cycle.py 
+ 542 cp 19.ok0-correct.json  19.z0.json
+ 543 vi 19.z0.json 
+ 544 python auto.py  19.z0.json 
+ 545 for x in 3*txt; do awk '/Fermi /||/Free/||/Kinetic: /||/Potential: / { print FILENAME " " $0; }'  $x ; done | awk '/Free/' | sort -k4nr
+ 546 git status
+ 547 for x in 3*txt; do awk '/Fermi /||/Free/||/Kinetic: /||/Potential: / { print FILENAME " " $0; }'  $x ; done | awk '/Free/' | sort -k4nr
+ 548 v 3_57799_P1_PBE_zy0_3400.txt 
+ 549 vi 3_57799_P1_PBE_zy0_3400.txt 
+ 550 ls-lt
+ 551 ls -lt
+ 552 ls -lt |more
+ 553 git status
+ 554 find am05
+ 555 git add -A am05
+ 556 git commit -m 'manual am05 executions'
+ 557 git status
+ 558 ls -ltd *zy*txt
+ 559 git add *zy*txt
+ 560 git status
+ 561 git commit -m 'second "7 run"... still incorrect but energies are fine'
+ 562 git status
+ 563 vi 3_57799_P1_PBE_1534797131.txt
+ 564 git add 3_57799_P1_PBE_1534797131.txt
+ 565 git commit -m 'manual run based "run 7" with longer movement of Hafnium atom on Z axis'
+ 566 git status
+ 567 git diff .gitignore 
+ 568 git commit -m 'do not track trajectory file and "script" file' .gitignore 
+ 569 git status
+ 570 git diff cycle.py 
+ 571 vim cycle.py 
+ 572 git diff cycle.py 
+ 573 ls-lt
+ 574 git status
+ 575 vi 21.json 
+ 576 git status
+ 577 git add -A 19* cycle.py 
+ 578 git status --cached
+ 579 git diff --cached
+ 580 git status
+ 581 ls -tl *txt
+ 582 ls -rtl *txt
+ 583 cat 3_57799_P1_PBE_zy0_3500.txt
+ 584 vi 3_57799_P1_PBE_zy0_3500.txt
+ 585 ls-lt
+ 586 ls  -lt
+ 587 ls -lt
+ 588 git status
+ 589 ls -lt *txt
+ 590 for x in 3*txt; do awk '/Fermi /||/Free/||/Kinetic: /||/Potential: / { print FILENAME " " $0; }'  $x ; done | awk '/Free/' | sort -k4nr
+ 591 cat 3_57799_P1_PBE_zy0_3400.txt
+ 592 vi  3_57799_P1_PBE_zy0_3400.txt
+ 593 vi cycle.py 
+ 594 vim cycle.py 
+ 595 python cycle.py 
+ 596 python cycle.py  |more
+ 597 vim cycle.py 
+ 598 git status
+ 599 git diff
+ 600 vi cycle.py 
+ 601 git diff cycle.py 
+ 602 git status
+ 603 git commit -m 'still incorrect "Run 7"(step up)'
+ 604 vi cycle.py 
+ 605 vim cycle.py 
+ 606 vi cycle.py 
+ 607 python cycle.py  &
+ 608 jobs
+ 609 fg
+ 610 ls *za*
+ 611 ls -lt *za*
+ 612 for x in 3*txt; do awk '/Fermi /||/Free/||/Kinetic: /||/Potential: / { print FILENAME " " $0; }'  $x ; done | awk '/Free/' | sort -k4nr
+ 613 gpaw dataset Pr -P 5s,6s,5p,6p,5d,2.2d,4f,0.4f,G -r 2.95,2.65,2.30,2.05 -0 5,2.00 -sw -f PBE
+ 614 bg
+ 615 ls -lt | head
+ 616 ls -l
+ 617 git status
+ 618 git push
+ 619 git diff cycle.py 
+ 620 ls -lt
+ 621 cd am05
+ 622 ls
+ 623 mkdir ../m062x
+ 624 cp 19.ok-am05.json ../m062x/
+ 625 cd ../m062x/
+ 626 ls
+ 627 mv 19.ok-am05.json 19.m062x.json
+ 628 vi 19.m062x.json
+ 629 find .. -name '*json'
+ 630 find .. -name '*json'|xargs grep -il m06
+ 631 cat ../old/19.l.json
+ 632 python ../auto.py 19.m062x.json 
+ 633 vi ../auto.py 
+ 634 python
+ 635 vi /app/gpaw/software/venv/lib/python3.7/site-packages/gpaw/calculator.py 
+ 636 vi /app/gpaw/software/venv/lib/python3.7/site-packages/gpaw/xc/__init__.py 
+ 637 vim /app/gpaw/software/venv/lib/python3.7/site-packages/gpaw/xc/__init__.py 
+ 638 vim /app/gpaw/software/venv/lib/python3.7/site-packages/gpaw/xc/hybrid.py 
+ 639 ls
+ 640 mv 19.m062x.json 19.hse06.json
+ 641 vi 19.hse06.json 
+ 642 python ../auto.py 19.hse06.json 
+ 643 vi 19.hse06.json 
+ 644 ls -lt
+ 645 set | grep GPAW
+ 646 gpaw-setup -f HSE06 Hf
+ 647 vi 19.hse06.json 
+ 648 python ../auto.py 19.hse06.json 
+ 649 bg
+ 650 ls -lt
+ 651 top
+ 652 ls -lta
+ 653 more 3_57799_Pm_B3LYP_1535237705.txt 
+ 654 tail -200f 3_57799_Pm_B3LYP_1535237705.txt 
+ 655 tail -200 -f 3_57799_Pm_B3LYP_1535237705.txt 
+ 656 ls -lt
+ 657 ls -lt ../*json | head
+ 658 vi ../19.z0.json
+ 659 cp ../19.z0.json 19.ok.B3LYP.json
+ 660 vi 19.ok.B3LYP.json 
+ 661 python ../auto.py  19.ok.B3LYP.json &
+ 662 tail -200 -f  3_57799_P1_B3LYP_1535238922.txt
+ 663 ls -lt
+ 664 vi 3_57799_P1_B3LYP_1535238922.txt
+ 665 ls -lt
+ 666 cd ..
+ 667 gpaw-setup -f HSE06 Hf
+ 668 gpaw-setup -f EXX Hf
+ 669 cd -
+ 670 ls
+ 671 cp 19.hse06.json ..
+ 672 cd ..
+ 673 python auto.py  19.hse06.json 
+ 674 ls -lt | head
+ 675 rm 3_57799_Pm_B3LYP_1535245929.txt
+ 676 vi 19.hse06.json
+ 677 python auto.py  19.hse06.json 
+ 678 pip list
+ 679 pip list |head
+ 680 pip install -U pip setuptools
+ 681 pip list |head
+ 682 pip list
+ 683 pip list >pip 
+ 684 vi pip 
+ 685 rm pip
+ 686 pip list | awk ' FNR > 2'
+ 687 pip list | awk ' FNR > 2 { print $2 } '
+ 688 pip list | awk ' FNR > 2 { print $1 } '
+ 689 pip install -U $(pip list | awk ' FNR > 2 { print $1 } ')
+ 690 apk add gcc binutils linux-headers libc-dev
+ 691 pip install -U $(pip list | awk ' FNR > 2 { print $1 } ')
+ 692 ps -ef
+ 693 python auto.py  19.hse06.json 
+ 694 strace python auto.py  19.hse06.json 
+ 695 apk add strace
+ 696 strace python auto.py  19.hse06.json 
+ 697 strace python -m trace -t  auto.py  19.hse06.json 
+ 698 python -m trace -t  auto.py  19.hse06.json 
+ 699 ls -lt | hea
+ 700 ls -lt | head
+ 701 cp 19.hse06.json 19.hse06-a.json 
+ 702 vi 19.hse06-a.json 
+ 703 python auto.py 19.hse06-a.json 
+ 704 gpaw-setup -f HYB_GGA_XC_HSE06 Hf
+ 705 gpaw-setup -f HYB_GGA_XC_HSE06 C
+ 706 gpaw-setup -f HYB_GGA_XC_HSE06 N
+ 707 python auto.py 19.hse06-a.json 
+ 708 bg
+ 709 ls -lt | more
+ 710 tail -200 -f 3_57799_Pm_HYB_GGA_XC_HSE06_1535303494.txt
+ 711 ls -lt | head
+ 712 vi 3_57799_Pm_HYB_GGA_XC_HSE06_1535303494.txt
+ 713 python auto.py 19.hse06.json 
+ 714 python -m trace -t auto.py 19.hse06.json 2>/tmp/trace.txt
+ 715 python -m trace -t auto.py 19.hse06.json >/tmp/trace.txt
+ 716 vi /tmp/trace.txt 
+ 717 find ../ -name ulm.py
+ 718 vi ../software/venv/lib/python3.7/site-packages/ase/io/ulm.py
+ 719 vi /tmp/trace.txt 
+ 720 find ../ -name pair.py
+ 721 vi ../software/venv/lib/python3.7/site-packages/gpaw/response/pair.py
+ 722 vim ../software/venv/lib/python3.7/site-packages/gpaw/response/pair.py
+ 723 ls -lt | head
+ 724 vi  3_57799_Pm_HYB_GGA_XC_HSE06_1535303494.txt
+ 725 find ../software/venv/lib/python3.7/site-packages/gpaw/ -name '*.py'
+ 726 find ../software/venv/lib/python3.7/site-packages/gpaw/ -name '*.py'| xargs grep -l get_setup_name
+ 727 vi ../software/venv/lib/python3.7/site-packages/gpaw/xc/hybrid.py
+ 728 vim ../software/venv/lib/python3.7/site-packages/gpaw/xc/hybrid.py
+ 729 vi ../software/venv/lib/python3.7/site-packages/gpaw/xc/hybrid.py
+ 730 vim ../software/venv/lib/python3.7/site-packages/gpaw/xc/hybrid.py
+ 731 find ../software/venv/lib/python3.7/site-packages/gpaw/ -name '*.py'| xargs grep -l get_setup_name
+ 732 vim ../software/venv/lib/python3.7/site-packages/gpaw/xc/mgga.py
+ 733 find ../software/venv/lib/python3.7/site-packages/gpaw/ -name '*.py'| xargs grep -l HSE
+ 734 vim ../software/venv/lib/python3.7/site-packages/gpaw/xc/__init__.py
+ 735 ls -lt 
+ 736 ls -lt *.json
+ 737 cat 19.json
+ 738 ls
+ 739 git stats
+ 740 git status
+ 741 git diff cycle.py 
+ 742 set -o emacs
+ 743 git diff cycle.py find m062x/
+ 744 ls -lt *za*
+ 745 vi 3_57799_P1_PBE_za0_01.txt
+ 746 git status
+ 747 git diff cycle.py 
+ 748 git commit -m 'correction for last run' cycle.py 
+ 749 history
+ 750 history > history.txt
