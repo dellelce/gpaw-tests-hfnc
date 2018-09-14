@@ -26,7 +26,7 @@ def cycle(filename="19.json", start=-1.10, stop=-1.80, step=0.05, atom=1, positi
         x = execution(d)
         x.run(baselabel+label)
         cnt += 1
-        status -= step
+        status = step
 
     print("cycle() completed with {} executions.".format(cnt))
 
@@ -72,4 +72,4 @@ if __name__ == '__main__':
           step=-0.01,
           atom=0,
           position=3,
-          baselabel='zy')
+          baselabel='za')
