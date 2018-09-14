@@ -749,3 +749,42 @@
  748 git commit -m 'correction for last run' cycle.py 
  749 history
  750 history > history.txt
+ 751 wc -l history.txt 
+ 752 git add history.txt 
+ 753 git commit -m 'history file'
+ 754 ls -lt
+ 755 git status
+ 756 find m062x/
+ 757 vi m062x/*json
+ 758 grep func m062x/*json
+ 759 ls -lt m062x/
+ 760 git add -A m062x/
+ 761 git commit -m 'attempted runs with hybrids: B3LYP, M06-2X, HSE06'
+ 762 git status
+ 763 git add -A *HSE06
+ 764 git status
+ 765 git commit -m 'setups for running HSE06 directly with libxc'
+ 766 a="
+ 767 19.hse06-a.json
+ 768         19.hse06.json
+ 769         21.json
+ 770 "
+ 771 echo $a
+ 772 more $a
+ 773 git add $a
+ 774 git commit -m 'runs for HSE06 & PBE'
+ 775 git status
+ 776 git status| grep txt
+ 777 git status| grep txt|xargs ls -lt
+ 778 git status| grep txt | grep PBE
+ 779 git add $(git status| grep txt | grep PBE)
+ 780 git commit -m 'final run'
+ 781 vi 3_57799_Pm_HYB_GGA_XC_HSE06_1535303494.txt
+ 782 git status
+ 783 git status| grep HSE06
+ 784 git add $(git status| grep HSE06)
+ 785 git commit -m 'unsuccessful & almost successful HSE06 runs'
+ 786 git status
+ 787 git push
+ 788 git status
+ 789 history > history.txt 
